@@ -1,11 +1,13 @@
 from Domain.rezervare import toString
 from logic.CRUD import adaugaRezervare, stergereRezervare, modificaRezervare
+from logic.functionalitati import trecereaClasaSuperioaraDupaNume
 
 
 def printMenu():
     print("1. Adauga rezervare")
     print("2. Sterge rezervare")
     print("3. Modifica rezervarea")
+    print("4. Trece toate rezervările făcute pe un nume citit la o clasă superioară.")
     print("a. Afiseaza toate rezervariile")
     print("x. Iesire")
 
@@ -33,6 +35,10 @@ def uiModificaRezervare(lista):
     checkin = input("Dati noul checkin făcut (`da` / `nu`): ")
     return modificaRezervare(id, nume, clasa, pret, checkin, lista)
 
+def uiTrecereaClasaSuperioaraDupaNume(lista):
+    nume = input("Dati numele: ")
+    return trecereaClasaSuperioaraDupaNume(nume, lista)
+
 
 def showAll(lista):
     for rezervare in lista:
@@ -49,6 +55,8 @@ def runMenu(lista):
             lista = uiStergereRezervare(lista)
         elif optiune == "3":
             lista = uiModificaRezervare(lista)
+        elif optiune == "4":
+            lista = uiTrecereaClasaSuperioaraDupaNume(lista)
         elif optiune == "a":
             showAll(lista)
         elif optiune == "x":
