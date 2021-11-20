@@ -7,7 +7,11 @@ def main():
     runAllTests()
     lista = []
     lista = adaugaRezervare("1", "Luisa", "business", 200, "Nu", lista)
-    lista = adaugaRezervare("2", "Ioana", "economy", 340, "Da", lista)
+    lista = adaugaRezervare("2", "Ioana", "economy", 1400, "Da", lista)
+    lista = adaugaRezervare("3", "Luisa", "business", 100, "Nu", lista)
+    lista = adaugaRezervare("4", "Ioana", "economy", 1400, "Da", lista)
+    lista = adaugaRezervare("5", "Luisa", "business", 2300, "Nu", lista)
+    lista = adaugaRezervare("6", "Ioana", "economy", 140, "Da", lista)
     runMenu(lista)
 
 
