@@ -1,4 +1,5 @@
 from Domain.rezervare import getNume, getClasa, getId, creeazaRezervare, getPret, getCheckin
+from logic.CRUD import stergereRezervare
 
 
 def trecereaClasaSuperioaraDupaNume(nume, lista):
@@ -91,15 +92,16 @@ def getByCheckin(lista):
             return rezervare
     return None
 
+
 def pretMaximRezervare(lista):
     '''
     Determinarea prețului maxim pentru fiecare clasă.
     :param lista: lista de rezervari
     :return: preturile maxime de la clase
     '''
-    maxEconomy = -1
-    maxEconomyPlus = -1
-    maxBusiness = -1
+    maxEconomy = 0
+    maxEconomyPlus = 0
+    maxBusiness = 0
     for rezervare in lista:
         if getClasa(rezervare) == "economy" and getPret(rezervare) >= maxEconomy:
             maxEconomy = getPret(rezervare)
@@ -107,7 +109,6 @@ def pretMaximRezervare(lista):
             maxEconomyPlus = getPret(rezervare)
         elif getClasa(rezervare) == "business" and getPret(rezervare) >= maxBusiness:
             maxBusiness = getPret(rezervare)
-
     if maxEconomy > -1:
         print("Pretul maxim la clasa economy este: " + str(maxEconomy))
     else:
@@ -121,3 +122,21 @@ def pretMaximRezervare(lista):
     else:
         print("Nu sunt rezervari la clasa economy plus")
 
+
+def ordoneazaRezervarileDescrescDupaPret(lista):
+    '''
+    ordoneaza rezervarile descrescator dupa pret
+    :param lista: lista de rezervari
+    :return:returneaza o lista noua cu preturile ordonate descresctor
+    '''
+    listaNoua = []
+    while len(lista) > 0:
+        max = 0
+        for rezervare in lista:
+            if getPret(rezervare) > max:
+                max = getPret(rezervare)
+        for rezervare in lista:
+            if getPret(rezervare) == max:
+                listaNoua.append(rezervare)
+                lista = stergereRezervare(getId(rezervare), lista)
+    return listaNoua

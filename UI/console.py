@@ -1,6 +1,7 @@
 from Domain.rezervare import toString
 from logic.CRUD import adaugaRezervare, stergereRezervare, modificaRezervare
-from logic.functionalitati import trecereaClasaSuperioaraDupaNume, ieftinirePretRezervariDupaCheckin, pretMaximRezervare
+from logic.functionalitati import trecereaClasaSuperioaraDupaNume, ieftinirePretRezervariDupaCheckin, \
+    pretMaximRezervare, ordoneazaRezervarileDescrescDupaPret
 
 
 def printMenu():
@@ -10,6 +11,7 @@ def printMenu():
     print("4. Trece toate rezervările făcute pe un nume citit la o clasă superioară.")
     print("5. Ieftineste toate rezervările la care s-a făcut checkin cu un procentaj citit.")
     print("6. Determinarea prețului maxim pentru fiecare clasă.")
+    print("7. Ordonarea rezervărilor descrescător după preț.")
     print("a. Afiseaza toate rezervariile")
     print("x. Iesire")
 
@@ -45,7 +47,6 @@ def uiIeftinirePretRezervariDupaCheckin(lista):
     procentaj = int(input("Dati procentajul:"))
     return ieftinirePretRezervariDupaCheckin (procentaj, lista)
 
-
 def showAll(lista):
     for rezervare in lista:
         print (toString(rezervare))
@@ -67,6 +68,8 @@ def runMenu(lista):
             lista = uiIeftinirePretRezervariDupaCheckin(lista)
         elif optiune == "6":
             pretMaximRezervare(lista)
+        elif optiune == "7":
+            print(ordoneazaRezervarileDescrescDupaPret(lista))
         elif optiune == "a":
             showAll(lista)
         elif optiune == "x":

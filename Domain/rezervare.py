@@ -32,6 +32,7 @@ def getPret(rezervare):
 def getCheckin(rezervare):
     return rezervare['checkin']
 
+
 def toString(rezervare):
     return "id: {}, nume: {}, clasa: {}, pret: {}, checkin: {}".format(
         getId(rezervare),
