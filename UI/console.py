@@ -69,7 +69,7 @@ def runMenu(lista):
         elif optiune == "6":
             pretMaximRezervare(lista)
         elif optiune == "7":
-            print(ordoneazaRezervarileDescrescDupaPret(lista))
+            showAll(ordoneazaRezervarileDescrescDupaPret(lista))
         elif optiune == "a":
             showAll(lista)
         elif optiune == "x":
