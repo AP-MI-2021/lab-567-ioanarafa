@@ -99,9 +99,9 @@ def pretMaximRezervare(lista):
     :param lista: lista de rezervari
     :return: preturile maxime de la clase
     '''
-    maxEconomy = 0
-    maxEconomyPlus = 0
-    maxBusiness = 0
+    maxEconomy = -1
+    maxEconomyPlus = -1
+    maxBusiness = -1
     for rezervare in lista:
         if getClasa(rezervare) == "economy" and getPret(rezervare) >= maxEconomy:
             maxEconomy = getPret(rezervare)
@@ -140,3 +140,19 @@ def ordoneazaRezervarileDescrescDupaPret(lista):
                 listaNoua.append(rezervare)
                 lista = stergereRezervare(getId(rezervare), lista)
     return listaNoua
+#Afișarea sumelor prețurilor pentru fiecare nume
+
+def sunaPreturiPerNume(lista):
+    '''
+    afiseaza suma preturilor pt fiecare nume
+    :param lista: lista de rezervari
+    :return:
+    '''
+    rezultat = {}
+    for rezervare in lista:
+        nume = getNume(rezervare)
+        if nume in rezultat:
+            rezultat[nume] = rezultat[nume] + getPret(rezervare)
+        else:
+            rezultat[nume] = getPret(rezervare)
+    return rezultat

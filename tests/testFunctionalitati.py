@@ -1,7 +1,7 @@
 from Domain.rezervare import getId, getNume, getClasa, getPret, getCheckin
 from logic.CRUD import adaugaRezervare
 from logic.functionalitati import trecereaClasaSuperioaraDupaNume, getByName, ieftinirePretRezervariDupaCheckin, \
-    getByCheckin, ordoneazaRezervarileDescrescDupaPret
+    getByCheckin, ordoneazaRezervarileDescrescDupaPret, sunaPreturiPerNume
 
 
 def testTrecereaClasaSuperioaraDupaNume():
@@ -43,3 +43,14 @@ def testOrdoneazaRezervarileDescrescDupaPret():
     assert getId(rezultat[1]) == "2"
     assert getId(rezultat[2]) == "1"
     assert getId(rezultat[3]) == "4"
+
+
+def testSunaPreturiPerNume():
+    lista = []
+    lista = adaugaRezervare("1", "Ana", "economy", 140, "Da", lista)
+    lista = adaugaRezervare("2", "Mara", "business", 360, "Nu", lista)
+    lista = adaugaRezervare("3", "Ana", "economy", 1400, "Da", lista)
+    rezultat = sunaPreturiPerNume(lista)
+    assert len(rezultat) == 2
+    assert rezultat["Ana"] == 1540
+    assert rezultat["Mara"] == 360

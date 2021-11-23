@@ -1,7 +1,7 @@
 from Domain.rezervare import toString
 from logic.CRUD import adaugaRezervare, stergereRezervare, modificaRezervare
 from logic.functionalitati import trecereaClasaSuperioaraDupaNume, ieftinirePretRezervariDupaCheckin, \
-    pretMaximRezervare, ordoneazaRezervarileDescrescDupaPret
+    pretMaximRezervare, ordoneazaRezervarileDescrescDupaPret, sunaPreturiPerNume
 
 
 def printMenu():
@@ -10,8 +10,9 @@ def printMenu():
     print("3. Modifica rezervarea")
     print("4. Trece toate rezervările făcute pe un nume citit la o clasă superioară.")
     print("5. Ieftineste toate rezervările la care s-a făcut checkin cu un procentaj citit.")
-    print("6. Determinarea prețului maxim pentru fiecare clasă.")
-    print("7. Ordonarea rezervărilor descrescător după preț.")
+    print("6. Determina prețul maxim pentru fiecare clasă.")
+    print("7. Ordoneaza rezervările descrescător după preț.")
+    print("8. Afișaza sumele prețurilor pentru fiecare nume")
     print("a. Afiseaza toate rezervariile")
     print("x. Iesire")
 
@@ -47,6 +48,19 @@ def uiIeftinirePretRezervariDupaCheckin(lista):
     procentaj = int(input("Dati procentajul:"))
     return ieftinirePretRezervariDupaCheckin (procentaj, lista)
 
+def uiPretMaximRezervare(lista):
+    rezultat = pretMaximRezervare(lista)
+    return rezultat
+
+def uiOrdoneazaRezervarileDescrescDupaPret(lista):
+    rezultat = ordoneazaRezervarileDescrescDupaPret(lista)
+    showAll(rezultat)
+
+def uiSunaPreturiPerNume(lista):
+    rezultat = sunaPreturiPerNume(lista)
+    for nume in rezultat:
+        print("Pentru numele {} suma preturilor este: {}".format(nume, rezultat[nume]))
+
 def showAll(lista):
     for rezervare in lista:
         print (toString(rezervare))
@@ -67,9 +81,11 @@ def runMenu(lista):
         elif optiune == "5":
             lista = uiIeftinirePretRezervariDupaCheckin(lista)
         elif optiune == "6":
-            pretMaximRezervare(lista)
+            uiPretMaximRezervare(lista)
         elif optiune == "7":
-            showAll(ordoneazaRezervarileDescrescDupaPret(lista))
+            uiOrdoneazaRezervarileDescrescDupaPret(lista)
+        elif optiune == "8":
+            uiSunaPreturiPerNume(lista)
         elif optiune == "a":
             showAll(lista)
         elif optiune == "x":
