@@ -18,12 +18,16 @@ def printMenu():
 
 
 def uiAdaugaRezervare(lista):
-    id= input("Dati id-ul: ")
-    nume= input("Dati numele: ")
-    clasa= input("Dati clasa (`economy`, `economy plus`, `business`): ")
-    pret= float(input("Dati pret-ul: "))
-    checkin= input("Dati checkin-ul făcut (`da` / `nu`): ")
-    return adaugaRezervare( id, nume, clasa, pret, checkin, lista)
+    try:
+        id= input("Dati id-ul: ")
+        nume= input("Dati numele: ")
+        clasa= input("Dati clasa (`economy`, `economy plus`, `business`): ")
+        pret= float(input("Dati pret-ul: "))
+        checkin= input("Dati checkin-ul făcut (`da` / `nu`): ")
+        return adaugaRezervare( id, nume, clasa, pret, checkin, lista)
+    except ValueError as ve :
+        print("Eroarea: ",ve)
+        return lista
 
 
 def uiStergereRezervare(lista):
