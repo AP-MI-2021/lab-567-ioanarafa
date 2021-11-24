@@ -114,13 +114,13 @@ def runMenu(lista):
             if optiune == "1":
                 lista = uiAdaugaRezervare(lista, undoList, redoList)
             elif optiune == "2":
-                lista = uiStergereRezervare(lista, undoList)
+                lista = uiStergereRezervare(lista, undoList, redoList)
             elif optiune == "3":
-                lista = uiModificaRezervare(lista, undoList)
+                lista = uiModificaRezervare(lista, undoList, redoList)
             elif optiune == "4":
-                lista = uiTrecereaClasaSuperioaraDupaNume(lista, undoList)
+                lista = uiTrecereaClasaSuperioaraDupaNume(lista, undoList, redoList)
             elif optiune == "5":
-                lista = uiIeftinirePretRezervariDupaCheckin(lista, undoList)
+                lista = uiIeftinirePretRezervariDupaCheckin(lista, undoList, redoList)
             elif optiune == "6":
                 uiPretMaximRezervare(lista)
             elif optiune == "7":
