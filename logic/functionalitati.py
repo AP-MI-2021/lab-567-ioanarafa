@@ -54,6 +54,8 @@ def ieftinirePretRezervariDupaCheckin(procentaj, lista):
     :param lista: lista initiala
     :return: lista finala dupa scaderea de procentaj
     '''
+    if procentaj < 0:
+        raise ValueError("Nu puteti da un procentaj negativ!")
     listaNoua = []
     for rezervare in lista:
         if getCheckin(rezervare) == "Da":

@@ -25,7 +25,8 @@ def stergereRezervare(id, lista):
     :param lista:lista de rezervari
     :return: o lista continand rezervarile cu id-ul direrit de id
     '''
-
+    if getById(id, lista) is None:
+        raise ValueError("Nu exista o prajitura cu Id-ul dat!")
     return [rezervare for rezervare in lista if getId(rezervare) != id]
 
 
@@ -40,7 +41,8 @@ def modificaRezervare(id, nume, clasa, pret, checkin, lista):
     :param lista: lista initiala de rezervari
     :return:lista initiala cu modificarea inclusa
     '''
-
+    if getById(id, lista) is None:
+        raise ValueError("Nu exista o prajitura cu Id-ul dat!")
     listaNoua = []
     for rezervare in lista:
         if getId(rezervare) == id:
