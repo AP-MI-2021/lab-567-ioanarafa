@@ -142,9 +142,9 @@ def ordoneazaRezervarileDescrescDupaPret(lista):
                 listaNoua.append(rezervare)
                 lista = stergereRezervare(getId(rezervare), lista)
     return listaNoua
-#Afișarea sumelor prețurilor pentru fiecare nume
 
-def sunaPreturiPerNume(lista):
+
+def sumaPreturiPerNume(lista):
     '''
     afiseaza suma preturilor pt fiecare nume
     :param lista: lista de rezervari

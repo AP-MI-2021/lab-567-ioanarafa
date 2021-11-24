@@ -1,7 +1,7 @@
 from Domain.rezervare import toString
 from logic.CRUD import adaugaRezervare, stergereRezervare, modificaRezervare
 from logic.functionalitati import trecereaClasaSuperioaraDupaNume, ieftinirePretRezervariDupaCheckin, \
-    pretMaximRezervare, ordoneazaRezervarileDescrescDupaPret, sunaPreturiPerNume
+    pretMaximRezervare, ordoneazaRezervarileDescrescDupaPret, sumaPreturiPerNume
 
 
 def printMenu():
