@@ -139,7 +139,6 @@ def runMenu(lista):
                     lista = redoList.pop()
                 else:
                     print("Nu se poate face redo!")
-
             elif optiune == "a":
                 showAll(lista)
             elif optiune == "x":
@@ -147,4 +146,4 @@ def runMenu(lista):
             else:
                 print("Optiune gresita! Reincercati")
          except Exception as ex:
-             print("Eroare:", ex)
+             print("Eroare: ", ex)
