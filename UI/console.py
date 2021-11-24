@@ -93,8 +93,8 @@ def uiOrdoneazaRezervarileDescrescDupaPret(lista):
     showAll(rezultat)
 
 
-def uiSunaPreturiPerNume(lista):
-    rezultat = sunaPreturiPerNume(lista)
+def uiSumaPreturiPerNume(lista):
+    rezultat = sumaPreturiPerNume(lista)
     for nume in rezultat:
         print("Pentru numele {} suma preturilor este: {}".format(nume, rezultat[nume]))
 
@@ -126,7 +126,7 @@ def runMenu(lista):
             elif optiune == "7":
                 uiOrdoneazaRezervarileDescrescDupaPret(lista)
             elif optiune == "8":
-                uiSunaPreturiPerNume(lista)
+                uiSumaPreturiPerNume(lista)
             elif optiune == "u":
                 if len(undoList) > 0:
                     redoList.append(lista)
