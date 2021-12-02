@@ -2,6 +2,7 @@ from tests.testCRUD import testAdaugareRezervare, testStergereRezervare, testMod
 from tests.testDomeniu import testRezervare
 from tests.testFunctionalitati import testTrecereaClasaSuperioaraDupaNume, testIeftinirePretRezervariDupaCheckin, \
     testOrdoneazaRezervarileDescrescDupaPret, testSumaPreturiPerNume
+from tests.testUndoRedo import testUndoRedo, testUndoRedoTrecereClasaSuperioara, testUndoRedoIeftinire
 
 
 def runAllTests():
@@ -13,3 +14,6 @@ def runAllTests():
     testIeftinirePretRezervariDupaCheckin()
     testOrdoneazaRezervarileDescrescDupaPret()
     testSumaPreturiPerNume()
+    testUndoRedo()
+    testUndoRedoTrecereClasaSuperioara()
+    testUndoRedoIeftinire()

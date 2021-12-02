@@ -58,7 +58,7 @@ def ieftinirePretRezervariDupaCheckin(procentaj, lista):
         raise ValueError("Nu puteti da un procentaj negativ!")
     listaNoua = []
     for rezervare in lista:
-        if getCheckin(rezervare) == "Da":
+        if getCheckin(rezervare) == "da":
             modificaRezervare = creeazaRezervare(
                 getId(rezervare),
                 getNume(rezervare),
@@ -90,7 +90,7 @@ def getByCheckin(lista):
     '''
 
     for rezervare in lista:
-        if getCheckin(rezervare) == "Da":
+        if getCheckin(rezervare) == "da":
             return rezervare
     return None
 
